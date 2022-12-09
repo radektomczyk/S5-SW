@@ -1,0 +1,386 @@
+Archive member included because of file (symbol)
+
+C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libc_v4t_a_le.a(__int32_udivmod.o)
+                              ARM RAM Debug/ctl_at91sam7.o (__udivsi3)
+
+Allocating common symbols
+Common symbol       size              file
+
+j                   0x4               ARM RAM Debug/lcd.o
+i                   0x4               ARM RAM Debug/lcd.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+UNPLACED_SECTIONS 0xffffffff         0x00000000         xw
+User_Peripherals 0xf0000000         0x0fff0000         xw
+System_Controller 0xfffff000         0x00001000         xw
+SRAM             0x00200000         0x00010000         xw
+FLASH            0x00100000         0x00040000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0xf0000000                __User_Peripherals_segment_start__ = 0xf0000000
+                0xffff0000                __User_Peripherals_segment_end__ = 0xffff0000
+                0xfffff000                __System_Controller_segment_start__ = 0xfffff000
+                0x00000000                __System_Controller_segment_end__ = 0x0
+                0x00200000                __SRAM_segment_start__ = 0x200000
+                0x00210000                __SRAM_segment_end__ = 0x210000
+                0x00100000                __FLASH_segment_start__ = 0x100000
+                0x00140000                __FLASH_segment_end__ = 0x140000
+                0x00000400                __STACKSIZE__ = 0x400
+                0x00000100                __STACKSIZE_IRQ__ = 0x100
+                0x00000100                __STACKSIZE_FIQ__ = 0x100
+                0x00000000                __STACKSIZE_SVC__ = 0x0
+                0x00000000                __STACKSIZE_ABT__ = 0x0
+                0x00000000                __STACKSIZE_UND__ = 0x0
+                0x00000400                __HEAPSIZE__ = 0x400
+                0x00200000                __vectors_load_start__ = __SRAM_segment_start__
+
+.vectors        0x00200000       0x3c
+                0x00200000                __vectors_start__ = .
+ *(.vectors .vectors.*)
+ .vectors       0x00200000       0x3c ARM RAM Debug/AT91SAM7_Startup.o
+                0x00200000                _vectors
+                0x0020003c                __vectors_end__ = (__vectors_start__ + SIZEOF (.vectors))
+                0x00000001                . = ASSERT (((__vectors_end__ >= __SRAM_segment_start__) && (__vectors_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .vectors is too large to fit in SRAM memory segment)
+                0x0020003c                __fast_load_start__ = (__vectors_end__ ALIGN 0x4)
+
+.fast           0x0020003c       0x64
+                0x0020003c                __fast_start__ = .
+ *(.fast .fast.*)
+ .fast          0x0020003c       0x64 ARM RAM Debug/main.o
+                0x0020003c                delay
+                0x002000a0                __fast_end__ = (__fast_start__ + SIZEOF (.fast))
+                0x00000001                . = ASSERT (((__fast_end__ >= __SRAM_segment_start__) && (__fast_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .fast is too large to fit in SRAM memory segment)
+                0x002000a0                __init_load_start__ = (__fast_end__ ALIGN 0x4)
+
+.init           0x002000a0      0x290
+                0x002000a0                __init_start__ = .
+ *(.init .init.*)
+ .init          0x002000a0      0x1d0 ARM RAM Debug/crt0.o
+                0x002000a0                _start
+                0x002000a0                __start
+ .init          0x00200270       0xc0 ARM RAM Debug/AT91SAM7_Startup.o
+                0x00200270                reset_handler
+                0x002002f8                undef_handler
+                0x002002fc                swi_handler
+                0x00200300                pabort_handler
+                0x00200304                dabort_handler
+                0x0020030c                fiq_handler
+                0x00200330                __init_end__ = (__init_start__ + SIZEOF (.init))
+                0x00000001                . = ASSERT (((__init_end__ >= __SRAM_segment_start__) && (__init_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .init is too large to fit in SRAM memory segment)
+                0x00200330                __text_load_start__ = (__init_end__ ALIGN 0x4)
+
+.text           0x00200330      0xe30
+                0x00200330                __text_start__ = .
+ *(.text .text.* .glue_7t .glue_7 .gnu.linkonce.t.* .gcc_except_table)
+ .glue_7        0x00000000        0x0 linker stubs
+ .glue_7t       0x00000000        0x0 linker stubs
+ .text          0x00200330        0x0 ARM RAM Debug/crt0.o
+ .text          0x00200330        0x0 ARM RAM Debug/AT91SAM7_Startup.o
+ .text          0x00200330      0x1e0 ARM RAM Debug/AIC.o
+                0x00200330                ctl_set_isr
+                0x00200498                ctl_unmask_isr
+                0x002004d4                ctl_mask_isr
+ .text          0x00200510       0x40 ARM RAM Debug/AIC_irq_handler.o
+                0x00200510                irq_handler
+ .text          0x00200550      0x1d8 ARM RAM Debug/ctl_at91sam7.o
+                0x002005a0                ctl_at91sam7_get_mck_frequency
+                0x00200670                ctl_start_timer
+                0x0020070c                ctl_get_ticks_per_second
+ .text          0x00200728      0x178 ARM RAM Debug/main.o
+                0x00200728                main
+ .text          0x002008a0      0x890 ARM RAM Debug/lcd.o
+                0x002008a0                Delaya
+                0x002008d4                Delay_
+                0x00200910                InitLCD
+                0x002009f8                WriteSpiCommand
+                0x00200a50                WriteSpiData
+                0x00200aa8                Backlight
+                0x00200af8                SetContrast
+                0x00200b18                LCDSettings
+                0x00200c50                LCDWrite130x130bmp
+                0x00200d1c                LCDWriteChar
+                0x00200d94                LCDPutChar
+                0x00200fd0                LCDPutStr
+                0x0020109c                LCDClearScreen
+ .text          0x00201130        0x0 C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libc_v4t_a_le.a(__int32_udivmod.o)
+ .text.libc     0x00201130       0x30 C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libc_v4t_a_le.a(__int32_udivmod.o)
+                0x00201130                __int32_udivmod
+                0x00201130                __udivsi3
+                0x00201130                __int32_udiv
+                0x00201160                __text_end__ = (__text_start__ + SIZEOF (.text))
+
+.vfp11_veneer   0x00000000        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x00000000        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+                0x00000001                . = ASSERT (((__text_end__ >= __SRAM_segment_start__) && (__text_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .text is too large to fit in SRAM memory segment)
+                0x00201160                __dtors_load_start__ = (__text_end__ ALIGN 0x4)
+
+.dtors          0x00201160        0x0
+                0x00201160                __dtors_start__ = .
+ *(SORT(.dtors.*))
+ *(.dtors)
+                0x00201160                __dtors_end__ = (__dtors_start__ + SIZEOF (.dtors))
+                0x00000001                . = ASSERT (((__dtors_end__ >= __SRAM_segment_start__) && (__dtors_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .dtors is too large to fit in SRAM memory segment)
+                0x00201160                __ctors_load_start__ = (__dtors_end__ ALIGN 0x4)
+
+.ctors          0x00201160        0x0
+                0x00201160                __ctors_start__ = .
+ *(SORT(.ctors.*))
+ *(.ctors)
+                0x00201160                __ctors_end__ = (__ctors_start__ + SIZEOF (.ctors))
+                0x00000001                . = ASSERT (((__ctors_end__ >= __SRAM_segment_start__) && (__ctors_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .ctors is too large to fit in SRAM memory segment)
+                0x00201160                __data_load_start__ = (__ctors_end__ ALIGN 0x4)
+
+.data           0x00201160        0x0
+                0x00201160                __data_start__ = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x00201160        0x0 ARM RAM Debug/crt0.o
+ .data          0x00201160        0x0 ARM RAM Debug/AT91SAM7_Startup.o
+ .data          0x00201160        0x0 ARM RAM Debug/AIC.o
+ .data          0x00201160        0x0 ARM RAM Debug/AIC_irq_handler.o
+ .data          0x00201160        0x0 ARM RAM Debug/ctl_at91sam7.o
+ .data          0x00201160        0x0 ARM RAM Debug/main.o
+ .data          0x00201160        0x0 ARM RAM Debug/lcd.o
+ .data          0x00201160        0x0 C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libc_v4t_a_le.a(__int32_udivmod.o)
+                0x00201160                __data_end__ = (__data_start__ + SIZEOF (.data))
+                0x00000001                . = ASSERT (((__data_end__ >= __SRAM_segment_start__) && (__data_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .data is too large to fit in SRAM memory segment)
+                0x00201160                __rodata_load_start__ = (__data_end__ ALIGN 0x4)
+
+.rodata         0x00201160     0x724c
+                0x00201160                __rodata_start__ = .
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x00201160        0x8 ARM RAM Debug/main.o
+ .rodata        0x00201168     0x7244 ARM RAM Debug/lcd.o
+                0x00201168                bmp
+                0x00207780                FONT6x8
+                0x00207a88                FONT8x8
+                0x00207d90                FONT8x16
+                0x002083ac                __rodata_end__ = (__rodata_start__ + SIZEOF (.rodata))
+                0x00000001                . = ASSERT (((__rodata_end__ >= __SRAM_segment_start__) && (__rodata_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .rodata is too large to fit in SRAM memory segment)
+                0x002083ac                __bss_load_start__ = (__rodata_end__ ALIGN 0x4)
+
+.bss            0x002083ac        0xc
+                0x002083ac                __bss_start__ = .
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x002083ac        0x0 ARM RAM Debug/crt0.o
+ .bss           0x002083ac        0x0 ARM RAM Debug/AT91SAM7_Startup.o
+ .bss           0x002083ac        0x0 ARM RAM Debug/AIC.o
+ .bss           0x002083ac        0x0 ARM RAM Debug/AIC_irq_handler.o
+ .bss           0x002083ac        0x4 ARM RAM Debug/ctl_at91sam7.o
+ .bss           0x002083b0        0x0 ARM RAM Debug/main.o
+ .bss           0x002083b0        0x0 ARM RAM Debug/lcd.o
+ .bss           0x002083b0        0x0 C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libc_v4t_a_le.a(__int32_udivmod.o)
+ *(COMMON)
+ COMMON         0x002083b0        0x8 ARM RAM Debug/lcd.o
+                0x002083b0                j
+                0x002083b4                i
+                0x002083b8                __bss_end__ = (__bss_start__ + SIZEOF (.bss))
+                0x00000001                . = ASSERT (((__bss_end__ >= __SRAM_segment_start__) && (__bss_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .bss is too large to fit in SRAM memory segment)
+                0x002083b8                __non_init_load_start__ = (__bss_end__ ALIGN 0x4)
+
+.non_init       0x002083b8        0x0
+                0x002083b8                __non_init_start__ = .
+ *(.non_init .non_init.*)
+                0x002083b8                __non_init_end__ = (__non_init_start__ + SIZEOF (.non_init))
+                0x00000001                . = ASSERT (((__non_init_end__ >= __SRAM_segment_start__) && (__non_init_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .non_init is too large to fit in SRAM memory segment)
+                0x002083b8                __heap_load_start__ = (__non_init_end__ ALIGN 0x4)
+
+.heap           0x002083b8      0x400
+                0x002083b8                __heap_start__ = .
+ *(.heap)
+ .heap          0x002083b8        0x0 ARM RAM Debug/crt0.o
+                0x002087b8                . = (((__heap_start__ + __HEAPSIZE__) MAX .) ALIGN 0x4)
+ *fill*         0x002083b8      0x400 00
+                0x002087b8                __heap_end__ = (__heap_start__ + SIZEOF (.heap))
+                0x00000001                . = ASSERT (((__heap_end__ >= __SRAM_segment_start__) && (__heap_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .heap is too large to fit in SRAM memory segment)
+                0x002087b8                __stack_load_start__ = (__heap_end__ ALIGN 0x4)
+
+.stack          0x002087b8      0x400
+                0x002087b8                __stack_start__ = .
+ *(.stack)
+ .stack         0x002087b8        0x0 ARM RAM Debug/crt0.o
+                0x00208bb8                . = (((__stack_start__ + __STACKSIZE__) MAX .) ALIGN 0x4)
+ *fill*         0x002087b8      0x400 00
+                0x00208bb8                __stack_end__ = (__stack_start__ + SIZEOF (.stack))
+                0x00000001                . = ASSERT (((__stack_end__ >= __SRAM_segment_start__) && (__stack_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .stack is too large to fit in SRAM memory segment)
+                0x00208bb8                __stack_irq_load_start__ = (__stack_end__ ALIGN 0x4)
+
+.stack_irq      0x00208bb8      0x100
+                0x00208bb8                __stack_irq_start__ = .
+ *(.stack_irq)
+ .stack_irq     0x00208bb8        0x0 ARM RAM Debug/crt0.o
+                0x00208cb8                . = (((__stack_irq_start__ + __STACKSIZE_IRQ__) MAX .) ALIGN 0x4)
+ *fill*         0x00208bb8      0x100 00
+                0x00208cb8                __stack_irq_end__ = (__stack_irq_start__ + SIZEOF (.stack_irq))
+                0x00000001                . = ASSERT (((__stack_irq_end__ >= __SRAM_segment_start__) && (__stack_irq_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .stack_irq is too large to fit in SRAM memory segment)
+                0x00208cb8                __stack_fiq_load_start__ = (__stack_irq_end__ ALIGN 0x4)
+
+.stack_fiq      0x00208cb8      0x100
+                0x00208cb8                __stack_fiq_start__ = .
+ *(.stack_fiq)
+ .stack_fiq     0x00208cb8        0x0 ARM RAM Debug/crt0.o
+                0x00208db8                . = (((__stack_fiq_start__ + __STACKSIZE_FIQ__) MAX .) ALIGN 0x4)
+ *fill*         0x00208cb8      0x100 00
+                0x00208db8                __stack_fiq_end__ = (__stack_fiq_start__ + SIZEOF (.stack_fiq))
+                0x00000001                . = ASSERT (((__stack_fiq_end__ >= __SRAM_segment_start__) && (__stack_fiq_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .stack_fiq is too large to fit in SRAM memory segment)
+                0x00208db8                __stack_svc_load_start__ = (__stack_fiq_end__ ALIGN 0x4)
+
+.stack_svc      0x00208db8        0x0
+                0x00208db8                __stack_svc_start__ = .
+ *(.stack_svc)
+ .stack_svc     0x00208db8        0x0 ARM RAM Debug/crt0.o
+                0x00208dbc                . = (((__stack_svc_start__ + __STACKSIZE_SVC__) MAX .) ALIGN 0x4)
+                0x00208db8                __stack_svc_end__ = (__stack_svc_start__ + SIZEOF (.stack_svc))
+                0x00000001                . = ASSERT (((__stack_svc_end__ >= __SRAM_segment_start__) && (__stack_svc_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .stack_svc is too large to fit in SRAM memory segment)
+                0x00208db8                __stack_abt_load_start__ = (__stack_svc_end__ ALIGN 0x4)
+
+.stack_abt      0x00208db8        0x0
+                0x00208db8                __stack_abt_start__ = .
+ *(.stack_abt)
+ .stack_abt     0x00208db8        0x0 ARM RAM Debug/crt0.o
+                0x00208dbc                . = (((__stack_abt_start__ + __STACKSIZE_ABT__) MAX .) ALIGN 0x4)
+                0x00208db8                __stack_abt_end__ = (__stack_abt_start__ + SIZEOF (.stack_abt))
+                0x00000001                . = ASSERT (((__stack_abt_end__ >= __SRAM_segment_start__) && (__stack_abt_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .stack_abt is too large to fit in SRAM memory segment)
+                0x00208db8                __stack_und_load_start__ = (__stack_abt_end__ ALIGN 0x4)
+
+.stack_und      0x00208db8        0x0
+                0x00208db8                __stack_und_start__ = .
+ *(.stack_und)
+ .stack_und     0x00208db8        0x0 ARM RAM Debug/crt0.o
+                0x00208dbc                . = (((__stack_und_start__ + __STACKSIZE_UND__) MAX .) ALIGN 0x4)
+                0x00208db8                __stack_und_end__ = (__stack_und_start__ + SIZEOF (.stack_und))
+                0x00208db8                __SRAM_segment_used_end__ = ((__stack_abt_end__ ALIGN 0x4) + SIZEOF (.stack_und))
+                0x00000001                . = ASSERT (((__stack_und_end__ >= __SRAM_segment_start__) && (__stack_und_end__ <= (__SRAM_segment_start__ + 0x10000))), error: .stack_und is too large to fit in SRAM memory segment)
+START GROUP
+LOAD ARM RAM Debug/crt0.o
+LOAD ARM RAM Debug/AT91SAM7_Startup.o
+LOAD ARM RAM Debug/AIC.o
+LOAD ARM RAM Debug/AIC_irq_handler.o
+LOAD ARM RAM Debug/ctl_at91sam7.o
+LOAD ARM RAM Debug/main.o
+LOAD ARM RAM Debug/lcd.o
+LOAD C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libarm_v4t_a_le.a
+LOAD C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libdebugio_dcc_v4t_a_le.a
+LOAD C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libm_v4t_a_le.a
+LOAD C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libc_v4t_a_le.a
+LOAD C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libcpp_v4t_a_le.a
+LOAD C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libdebugio_v4t_a_le.a
+LOAD C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libc_targetio_impl_v4t_a_le.a
+LOAD C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/lib_vfprintf_long_v4t_a_le.a
+LOAD C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/lib_vfscanf_long_v4t_a_le.a
+LOAD C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libc_user_libc_v4t_a_le.a
+END GROUP
+OUTPUT(ARM RAM Debug/cw1_arm.elf elf32-littlearm)
+
+.ARM.attributes
+                0x00000000       0x10
+ .ARM.attributes
+                0x00000000       0x10 ARM RAM Debug/crt0.o
+ .ARM.attributes
+                0x00000010       0x10 ARM RAM Debug/AT91SAM7_Startup.o
+ .ARM.attributes
+                0x00000020       0x10 ARM RAM Debug/AIC.o
+ .ARM.attributes
+                0x00000030       0x10 ARM RAM Debug/AIC_irq_handler.o
+ .ARM.attributes
+                0x00000040       0x10 ARM RAM Debug/ctl_at91sam7.o
+ .ARM.attributes
+                0x00000050       0x10 ARM RAM Debug/main.o
+ .ARM.attributes
+                0x00000060       0x10 ARM RAM Debug/lcd.o
+ .ARM.attributes
+                0x00000070       0x10 C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libc_v4t_a_le.a(__int32_udivmod.o)
+
+.comment        0x00000000       0x11
+ .comment       0x00000000       0x11 ARM RAM Debug/AIC.o
+                                 0x12 (size before relaxing)
+ .comment       0x00000000       0x12 ARM RAM Debug/ctl_at91sam7.o
+ .comment       0x00000000       0x12 ARM RAM Debug/main.o
+ .comment       0x00000000       0x12 ARM RAM Debug/lcd.o
+
+.debug_line     0x00000000      0x658
+ .debug_line    0x00000000       0xdf ARM RAM Debug/crt0.o
+ .debug_line    0x000000df       0xec ARM RAM Debug/AT91SAM7_Startup.o
+ .debug_line    0x000001cb      0x114 ARM RAM Debug/AIC.o
+ .debug_line    0x000002df       0xba ARM RAM Debug/AIC_irq_handler.o
+ .debug_line    0x00000399      0x11a ARM RAM Debug/ctl_at91sam7.o
+ .debug_line    0x000004b3       0x88 ARM RAM Debug/main.o
+ .debug_line    0x0000053b      0x11d ARM RAM Debug/lcd.o
+
+.debug_info     0x00000000      0x94c
+ .debug_info    0x00000000       0x9a ARM RAM Debug/crt0.o
+ .debug_info    0x0000009a       0xc2 ARM RAM Debug/AT91SAM7_Startup.o
+ .debug_info    0x0000015c      0x150 ARM RAM Debug/AIC.o
+ .debug_info    0x000002ac       0xc5 ARM RAM Debug/AIC_irq_handler.o
+ .debug_info    0x00000371      0x11e ARM RAM Debug/ctl_at91sam7.o
+ .debug_info    0x0000048f       0x7c ARM RAM Debug/main.o
+ .debug_info    0x0000050b      0x441 ARM RAM Debug/lcd.o
+
+.debug_abbrev   0x00000000      0x375
+ .debug_abbrev  0x00000000       0x14 ARM RAM Debug/crt0.o
+ .debug_abbrev  0x00000014       0x12 ARM RAM Debug/AT91SAM7_Startup.o
+ .debug_abbrev  0x00000026       0xb8 ARM RAM Debug/AIC.o
+ .debug_abbrev  0x000000de       0x14 ARM RAM Debug/AIC_irq_handler.o
+ .debug_abbrev  0x000000f2       0xe2 ARM RAM Debug/ctl_at91sam7.o
+ .debug_abbrev  0x000001d4       0x70 ARM RAM Debug/main.o
+ .debug_abbrev  0x00000244      0x131 ARM RAM Debug/lcd.o
+
+.debug_aranges  0x00000000       0xf0
+ .debug_aranges
+                0x00000000       0x20 ARM RAM Debug/crt0.o
+ .debug_aranges
+                0x00000020       0x28 ARM RAM Debug/AT91SAM7_Startup.o
+ .debug_aranges
+                0x00000048       0x20 ARM RAM Debug/AIC.o
+ .debug_aranges
+                0x00000068       0x20 ARM RAM Debug/AIC_irq_handler.o
+ .debug_aranges
+                0x00000088       0x20 ARM RAM Debug/ctl_at91sam7.o
+ .debug_aranges
+                0x000000a8       0x28 ARM RAM Debug/main.o
+ .debug_aranges
+                0x000000d0       0x20 ARM RAM Debug/lcd.o
+
+.debug_ranges   0x00000000       0x40
+ .debug_ranges  0x00000000       0x20 ARM RAM Debug/AT91SAM7_Startup.o
+ .debug_ranges  0x00000020       0x20 ARM RAM Debug/main.o
+
+.debug_frame    0x00000000      0x3a4
+ .debug_frame   0x00000000       0x7c ARM RAM Debug/AIC.o
+ .debug_frame   0x0000007c       0xb0 ARM RAM Debug/ctl_at91sam7.o
+ .debug_frame   0x0000012c       0x5c ARM RAM Debug/main.o
+ .debug_frame   0x00000188      0x1fc ARM RAM Debug/lcd.o
+ .debug_frame   0x00000384       0x20 C:/Program Files/Rowley Associates Limited/CrossWorks for ARM 2.0/lib/libc_v4t_a_le.a(__int32_udivmod.o)
+
+.debug_loc      0x00000000      0x3b2
+ .debug_loc     0x00000000       0x81 ARM RAM Debug/AIC.o
+ .debug_loc     0x00000081       0xac ARM RAM Debug/ctl_at91sam7.o
+ .debug_loc     0x0000012d       0x56 ARM RAM Debug/main.o
+ .debug_loc     0x00000183      0x22f ARM RAM Debug/lcd.o
+
+.debug_pubnames
+                0x00000000      0x1e9
+ .debug_pubnames
+                0x00000000       0x46 ARM RAM Debug/AIC.o
+ .debug_pubnames
+                0x00000046       0x66 ARM RAM Debug/ctl_at91sam7.o
+ .debug_pubnames
+                0x000000ac       0x25 ARM RAM Debug/main.o
+ .debug_pubnames
+                0x000000d1      0x118 ARM RAM Debug/lcd.o
+
+.debug_str      0x00000000      0x426
+ .debug_str     0x00000000      0x1a2 ARM RAM Debug/AIC.o
+                                0x1b8 (size before relaxing)
+ .debug_str     0x000001a2       0xed ARM RAM Debug/ctl_at91sam7.o
+                                0x1d0 (size before relaxing)
+ .debug_str     0x0000028f       0x36 ARM RAM Debug/main.o
+                                 0x42 (size before relaxing)
+ .debug_str     0x000002c5      0x161 ARM RAM Debug/lcd.o
+                                0x19a (size before relaxing)
